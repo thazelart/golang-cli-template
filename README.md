@@ -3,6 +3,8 @@
 This is a template for a cli in Golang. It includes:
  - The base of a cli using cobra
  - The configuration handler (using the `$HOME/.golang-project-template.yaml` config file)
+ - First command to print the version
+ - Testing libs with `stretchr/testify`
 
 More to come.
 
