@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/thazelart/golang-project-template/cmd"
+import "github.com/thazelart/golang-cli-template/cmd"
 
 func main() {
 	cmd.Execute()

@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-var expectOutput = `golang-project-template - dev
+var expectOutput = `golang-cli-template - dev
 
 Git Commit: None
 Build date: None

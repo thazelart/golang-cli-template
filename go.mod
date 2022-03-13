@@ -1,4 +1,4 @@
-module github.com/thazelart/golang-project-template
+module github.com/thazelart/golang-cli-template
 
 go 1.17
 

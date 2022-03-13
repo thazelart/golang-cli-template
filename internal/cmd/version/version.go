@@ -32,7 +32,7 @@ func init() {
 }
 
 func generateOutput() string {
-	return fmt.Sprintf(`golang-project-template - %s
+	return fmt.Sprintf(`golang-cli-template - %s
 
 Git Commit: %s
 Build date: %s
