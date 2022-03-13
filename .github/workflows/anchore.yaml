@@ -1,13 +1,9 @@
-name: Anchore Container Scan
+name: Docker Container Scan
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ main ]
   schedule:
-    - cron: '19 13 * * 0'
+    - cron: '0 0 * * 0'
 
 permissions:
   contents: read
@@ -19,16 +15,20 @@ jobs:
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout the code
+    - 
+      name: Checkout the code
       uses: actions/checkout@v2
-    - name: Build the Docker image
+    - 
+      name: Build the Docker image
       run: make VERSION=latest docker-build 
-    - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
+    - 
+      name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
       uses: anchore/scan-action@b08527d5ae7f7dc76f9621edb6e49eaf47933ccd
       with:
         image: "thazelart/golang-cli-template:latest"
         acs-report-enable: true
-    - name: Upload Anchore Scan Report
+    - 
+      name: Upload Anchore Scan Report
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: results.sarif

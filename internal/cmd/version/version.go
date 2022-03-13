@@ -42,5 +42,5 @@ OS / Arch: %s
 }
 
 func Print() {
-	fmt.Printf(generateOutput())
+	fmt.Println(generateOutput())
 }

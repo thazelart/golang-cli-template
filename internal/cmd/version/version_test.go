@@ -1,17 +1,20 @@
 package version
 
 import (
-	"github.com/stretchr/testify/assert"
+	"fmt"
+	"runtime"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
-var expectOutput = `golang-cli-template - dev
+var expectOutput = fmt.Sprintf(`golang-cli-template - dev
 
 Git Commit: None
 Build date: None
-Go version: go1.17.8
-OS / Arch: darwin amd64
-`
+Go version: %s
+OS / Arch: %s %s
+`, runtime.Version(), runtime.GOOS, runtime.GOARCH)
 
 func TestGenerateOutput(t *testing.T) {
 	assert.Equal(t, generateOutput(), expectOutput)
