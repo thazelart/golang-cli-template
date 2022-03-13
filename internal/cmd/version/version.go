@@ -31,6 +31,7 @@ func init() {
 	}
 }
 
+// generateOutput return the output of the version command
 func generateOutput() string {
 	return fmt.Sprintf(`golang-cli-template - %s
 
@@ -41,6 +42,7 @@ OS / Arch: %s
 `, version, gitCommit, buildDate, goVersion, osArch)
 }
 
+// Print the current version
 func Print() {
 	fmt.Println(generateOutput())
 }
