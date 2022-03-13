@@ -1,0 +1,44 @@
+env:
+  - GO111MODULE=auto
+before:
+  hooks:
+  - go mod download
+builds:
+-
+  env:
+    - CGO_ENABLED=0
+  goos:
+    - linux
+    - darwin
+    - windows
+  goarch:
+    - '386'
+    - amd64
+  ldflags:
+    - -s -w
+    - -X github.com/thazelart/golang-cli-template/internal/cmd/version.version={{.Version}} 
+    - -X github.com/thazelart/golang-cli-template/internal/cmd/version.gitCommit={{.Commit}} 
+    - -X github.com/thazelart/golang-cli-template/internal/cmd/version.buildDate={{.Date}}
+
+checksum:
+  name_template: '{{ .ProjectName }}_checksums.txt'
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+    - '^chore:'
+    - '^Merge pull request'
+    - '^Merge branch'
+archives:
+- 
+  name_template: '{{ .Binary }}_{{ .Os }}_{{ .Arch }}'
+  replacements:
+    darwin: Darwin
+    linux: Linux
+    386: i386
+    amd64: x86_64
+  format_overrides:
+    - goos: windows
+      format: zip
