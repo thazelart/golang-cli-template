@@ -1,36 +1,36 @@
 # golang-cli-template
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/gojp/goreportcard/blob/master/LICENSE)
 [![Go Reference](https://pkg.go.dev/badge/github.com/thazelart/golang-cli-template.svg)](https://pkg.go.dev/github.com/thazelart/golang-cli-template)
-[![Go Report Card](https://goreportcard.com/badge/github.com/thazelart/golang-cli-template)](https://goreportcard.com/report/github.com/thazelart/golang-cli-template)               
+[![Go Report Card](https://goreportcard.com/badge/github.com/thazelart/golang-cli-template)](https://goreportcard.com/report/github.com/thazelart/golang-cli-template)
 
 
-An opinionated template for new Golang cli projects. It includes:
+An opinionated template for new Golang cli projects.
+<!-- BEGIN __DO_NOT_INCLUDE__ -->
+It includes:
  - The base of a cli using `spf13/cobra` (including the `version` command)
  - The `spf13/viper` configuration handler (using the `$HOME/.golang-cli-template.yaml` config file)
  - Everything needed to test using `stretchr/testify`
  - The optimized and secured Dockerfile
+ - Templating engine using `rantav/go-archetype`
 
 More to come.
 
 ## Init your own project using that template
 
+We are using [rantav/go-archetype](https://github.com/rantav/go-archetype) to enable the creation of new projects from that template.
+
 ```bash
-# Configure your project name here
-git_user=thazelart
-project_name=my-awesome-cli
-maintainer="firstname LASTNAME firstname.lastname@example.com"
+$ go install github.com/rantav/go-archetype@latest
 
-# I assume here that your Golang env is ready
-cd ${GOPATH}/src/${git_user}
+$ go-archetype transform --transformations .go-archtype.yaml --source . --destination /path/to/destination
+# answer the questions
 
-git clone git@github.com:thazelart/golang-cli-template.git ${project_name}
-cd ${project_name}
-grep -rl "thazelart/golang-cli-template" | xargs sed -i "s#thazelart/golang-cli-template#${git_user}/${project_name}#g"
-grep -rl "golang-cli-template" | xargs sed -i "s#golang-cli-template#${project_name}#g"
-grep -rl "golang-cli-template" | xargs sed -i "s#Thibault HAZELART thazelart@gmail.com#${maintainer}#g"
+$ cd /path/to/destination
+# init your git repository and you're done.
 ```
 
 Enjoy developing your awesome cli.
+<!-- END __DO_NOT_INCLUDE__ -->
 
 ## Generate and use the autocompletion script
 ```bash
