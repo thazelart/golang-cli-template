@@ -22,7 +22,7 @@ We are using [rantav/go-archetype](https://github.com/rantav/go-archetype) to en
 ```bash
 $ go install github.com/rantav/go-archetype@latest
 
-$ go-archetype transform --transformations .go-archtype.yaml --source . --destination /path/to/destination
+$ go-archetype transform --transformations .go-archetype.yaml --source . --destination /path/to/destination
 # answer the questions
 
 $ cd /path/to/destination
