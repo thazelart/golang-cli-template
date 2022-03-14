@@ -1,0 +1,104 @@
+---
+ignore:
+  - .git/
+  - .go-archtype.yml
+inputs:
+  - id: repo_base_url
+    text: What is the project repo path base URL? (e.g. github.com)
+    type: text
+  - id: repo_user
+    text: What is the project repo user? (e.g. thazelart)
+    type: text
+  - id: repo_name
+    text: What is the project name? (e.g. my-awesome-go-cli)
+    type: text
+  - id: short_description
+    text: What is a short project description?
+    type: text
+  - id: long_description
+    text: What is a long project description? (long texts without no newlines)
+    type: text
+  - id: maintainer
+    text: Who is the maintainer? (e.g. Thibault HAZELART thazelart@gmail.com)
+    type: text
+before:
+  operations:
+    - sh:
+        - rm -rf {{.destination}}
+transformations:
+  - name: project short description
+    type: replace
+    pattern: A Golang cli template.
+    replacement: "{{ wrap 80 .short_description }}"
+    files:
+      - "cmd/root.go"
+  - name: project long description
+    type: replace
+    pattern: An opinionated template for new Golang cli projects.
+    replacement: "{{ wrap 80 .long_description }}"
+    files:
+      - "cmd/root.go"
+      - "README.md"
+  - name: project long path
+    type: replace
+    pattern: github.com/thazelart/golang-cli-template
+    replacement: "{{ .repo_base_url }}/{{ .repo_user }}/{{ .repo_name }}"
+    files:
+      - "*.go"
+      - "**/*.go"
+      - "go.mod"
+      - "go.sum"
+      - "Makefile"
+      - "Dockerfile"
+      - "README.md"
+      - ".goreleaser.yaml"
+      - ".github/workflows/*.yaml"
+  - name: project short path
+    type: replace
+    pattern: thazelart/golang-cli-template
+    replacement: "{{ .repo_user }}/{{ .repo_name }}"
+    files:
+      - "*.go"
+      - "**/*.go"
+      - "Makefile"
+      - "Dockerfile"
+      - "README.md"
+      - ".goreleaser.yaml"
+      - ".github/workflows/*.yaml"
+  - name: project name
+    type: replace
+    pattern: golang-cli-template
+    replacement: "{{ .repo_name }}"
+    files:
+      - "*.go"
+      - "**/*.go"
+      - ".gitignore"
+      - "Makefile"
+      - "Dockerfile"
+      - "README.md"
+      - ".goreleaser.yaml"
+      - ".github/workflows/*.yaml"
+  - name: project maintainer
+    type: replace
+    pattern: Thibault HAZELART thazelart@gmail.com
+    replacement: "{{ wrap 80 .maintainer }}"
+    files:
+      - "*.go"
+      - "**/*.go"
+      - "Dockerfile"
+  - name: do not include template code in the final output
+    type: include
+    region_marker: __DO_NOT_INCLUDE__
+    condition: false
+    files: ["**"]
+  - name: remove .go-archtype.yaml
+    type: include
+    region_marker:    # When there's no marker, the entire file(s) is included
+    condition: "yes"
+    files:
+      - ".go-archtype.yaml"
+after:
+  operations:
+    - sh:
+        - cd {{.destination}} && gofmt -s -w .
+        - cd {{.destination}} && goimports -w .
