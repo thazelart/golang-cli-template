@@ -3,6 +3,8 @@
 set -e
 echo "" > coverage.txt
 
+go generate ./...
+
 for d in $(go list ./... | grep -v vendor); do
     go test -race -coverprofile=profile.out -covermode=atomic "$d"
     if [ -f profile.out ]; then

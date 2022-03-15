@@ -39,7 +39,28 @@ $ cd /path/to/destination
 Enjoy developing your awesome cli.
 <!-- END __DO_NOT_INCLUDE__ -->
 
+## Install
+
+### Manual install
+
+```bash
+$ git clone github.com/thazelart/golang-cli-template
+$ cd golang-cli-template
+$ go generate ./...
+$ go install
+```
+
+### From binaries
+Download the pre-compiled binaries from the [release page](https://github.com/thazelart/golang-cli-template/releases) page and copy them to the desired location.
+
+```bash
+$ wget https://github.com/thazelart/golang-cli-template/releases/download/vX.Y.Z/golang-cli-template_Linux_x86_64.tar.gz
+$ tar xvf golang-cli-template_Linux_x86_64.tar.gz
+$ mv golang-cli-template /usr/local/bin
+```
+
 ## Generate and use the autocompletion script
+
 ```bash
 $ golang-cli-template completion ${0##*/} > /tmp/completion
 $ source /tmp/completion
