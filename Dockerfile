@@ -1,5 +1,7 @@
+ARG GO_VERSION=1.17
+
 # Build stage
-FROM golang:1.17 AS builder
+FROM golang:${GO_VERSION} AS builder
 
 ARG GIT_COMMIT
 ARG VERSION
