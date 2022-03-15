@@ -1,7 +1,14 @@
-# golang-cli-template
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/gojp/goreportcard/blob/master/LICENSE)
-[![Go Reference](https://pkg.go.dev/badge/github.com/thazelart/golang-cli-template.svg)](https://pkg.go.dev/github.com/thazelart/golang-cli-template)
-[![Go Report Card](https://goreportcard.com/badge/github.com/thazelart/golang-cli-template)](https://goreportcard.com/report/github.com/thazelart/golang-cli-template)
+<!-- BEGIN __DO_NOT_INCLUDE__ -->
+<p align="center"><img src="https://gist.githubusercontent.com/thazelart/5be06c101f53079b9914d6efd867e690/raw/e4812878f9d282cff5b118e61cc2863d0bc92f81/golang-cli-template.png" alt="Logo" height="120" /></p>
+<!-- END __DO_NOT_INCLUDE__ -->
+<h1 align="center"> golang-cli-template</h1>
+
+<p align="center">
+  <a href="https://github.com/gojp/goreportcard/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License Apache 2.0" style="max-width:100%;"></a>
+  <a href="https://pkg.go.dev/github.com/thazelart/golang-cli-template" rel="nofollow"><img src="https://pkg.go.dev/badge/github.com/thazelart/golang-cli-template.svg" alt="Go reference" style="max-width:100%;"></a>
+  <a href="https://goreportcard.com/report/github.com/thazelart/golang-cli-template" rel="nofollow"><img src="https://goreportcard.com/badge/github.com/thazelart/golang-cli-template" alt="Go report card" style="max-width:100%;"></a>
+</p>
+<br/>
 
 
 An opinionated template for new Golang cli projects.
