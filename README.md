@@ -1,5 +1,5 @@
 <!-- BEGIN __DO_NOT_INCLUDE__ -->
-<p align="center"><img src="https://gist.githubusercontent.com/thazelart/5be06c101f53079b9914d6efd867e690/raw/e4812878f9d282cff5b118e61cc2863d0bc92f81/golang-cli-template.png" alt="Logo" height="120" /></p>
+<p align="center"><img src="https://gist.githubusercontent.com/thazelart/5be06c101f53079b9914d6efd867e690/raw/35bdb7d2ba35dc2958637a59b63aa3d3db44f4f3/golang-cli-template.png" alt="Logo" height="120" /></p>
 <!-- END __DO_NOT_INCLUDE__ -->
 <h1 align="center"> golang-cli-template</h1>
 
