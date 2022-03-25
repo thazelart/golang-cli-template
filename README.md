@@ -17,6 +17,7 @@ It includes:
  - The base of a cli using `spf13/cobra` (including the `version` command)
  - The `spf13/viper` configuration handler (using the `$HOME/.golang-cli-template.yaml` config file)
  - Everything needed to test using `stretchr/testify`
+ - GitHub actions including release using `goreleaser/goreleaser`
  - The optimized and secured Dockerfile
  - Templating engine using `rantav/go-archetype`
 
