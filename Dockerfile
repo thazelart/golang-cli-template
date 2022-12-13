@@ -1,4 +1,4 @@
-ARG GO_VERSION=1.17
+ARG GO_VERSION=1.19
 
 # Build stage
 FROM golang:${GO_VERSION} AS builder
@@ -13,7 +13,7 @@ WORKDIR $GOPATH/src/github.com/thazelart/golang-cli-template
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
-RUN make build
+RUN make go/build
 RUN echo "nonroot:x:65534:65534:Non root:/:" > /etc_passwd
 
 

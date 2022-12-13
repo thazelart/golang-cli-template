@@ -10,16 +10,17 @@
 </p>
 <br/>
 
-
 An opinionated template for new Golang cli projects.
+
 <!-- BEGIN __DO_NOT_INCLUDE__ -->
+
 It includes:
- - The base of a cli using `spf13/cobra` (including the `version` command)
- - The `spf13/viper` configuration handler (using the `$HOME/.golang-cli-template.yaml` config file)
- - Everything needed to test using `stretchr/testify`
- - GitHub actions including release using `goreleaser/goreleaser`
- - The optimized and secured Dockerfile
- - Templating engine using `rantav/go-archetype`
+
+- The base of a cli using `spf13/cobra` (including the `version` command)
+- Everything needed to test using `stretchr/testify`
+- GitHub actions including release using `goreleaser/goreleaser`
+- The optimized and secured Dockerfile
+- Templating engine using `rantav/go-archetype`
 
 More to come.
 
@@ -38,6 +39,7 @@ $ cd /path/to/destination
 ```
 
 Enjoy developing your awesome cli.
+
 <!-- END __DO_NOT_INCLUDE__ -->
 
 ## Install
@@ -52,6 +54,7 @@ $ go install
 ```
 
 ### From binaries
+
 Download the pre-compiled binaries from the [release page](https://github.com/thazelart/golang-cli-template/releases) page and copy them to the desired location.
 
 ```bash

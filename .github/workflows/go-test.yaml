@@ -7,14 +7,11 @@ jobs:
   gotest:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v2
-      -
-        name: Set up Go
+      - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: '^1.17.8'
-      -
-        name: Run Go tests
+          go-version: "^1.19.4"
+      - name: Run Go tests
         run: ./go.test.sh

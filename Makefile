@@ -16,7 +16,9 @@ test/go:
 ## Get this project dependencies.
 local/deps:
 	go mod download
-
+	go install github.com/spf13/cobra-cli@v1.3.0
+	go install github.com/goreleaser/goreleaser@latest
+	
 ## Build locally the go project.
 go/build:
 	@echo "building ${BIN_NAME}"
