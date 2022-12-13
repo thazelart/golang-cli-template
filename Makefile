@@ -1,30 +1,46 @@
 BIN_NAME=golang-cli-template
 IMAGE_NAME=thazelart/${BIN_NAME}
 BIN_PATH=${GOPATH}/bin
-GO_VERSION=1.17
+GO_VERSION=1.19
 
-help:
-	@echo 'Management commands for golang-cli-template:'
-	@echo
-	@echo 'Usage:'
-	@echo '    make get-deps            Runs dep ensure, mostly used for ci.'
-	@echo '    make build               Compile the project.'
-	@echo '    make docker-build        Compile optimized for alpine linux.'
-	@echo '    make test-goreleaser     Ensure the goreleaser config is valid.'
-	@echo
+default: help
 
-test-goreleaser:
+## Test the goreleaser configuration locally.
+test/goreleaser:
 	goreleaser --snapshot --skip-publish --rm-dist
 
-get-deps:
+## Run the unit tests.
+test/go:
+	go test ./...
+
+## Get this project dependencies.
+local/deps:
 	go mod download
 
-build:
+## Build locally the go project.
+go/build:
 	@echo "building ${BIN_NAME}"
 	@echo "GOPATH=${GOPATH}"
 	go generate ./...
 	go build -o ${BIN_PATH}/${BIN_NAME}
 
-docker-build:
+## Compile optimized for alpine linux.
+docker/build:
 	@echo "building image ${IMAGE_NAME}"
 	docker build --build-arg GO_VERSION=${GO_VERSION} -t $(IMAGE_NAME):latest .
+
+## Print his help screen
+help:
+	@printf "Available targets:\n\n"
+	@awk '/^[a-zA-Z\-\_0-9%:\\]+/ { \
+		helpMessage = match(lastLine, /^## (.*)/); \
+		if (helpMessage) { \
+		helpCommand = $$1; \
+		helpMessage = substr(lastLine, RSTART + 3, RLENGTH); \
+	gsub("\\\\", "", helpCommand); \
+	gsub(":+$$", "", helpCommand); \
+		printf "  \x1b[32;01m%-15s\x1b[0m %s\n", helpCommand, helpMessage; \
+		} \
+	} \
+	{ lastLine = $$0 }' $(MAKEFILE_LIST) | sort -u
+	@printf "\n"
