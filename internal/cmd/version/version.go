@@ -36,7 +36,7 @@ func generateOutput() string {
 Git Commit: %s
 Build date: %s
 Go version: %s
-OS / Arch: %s
+OS / Arch : %s
 `, version, gitCommit, buildDate, goVersion, osArch)
 }
 
