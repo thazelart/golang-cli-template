@@ -4,7 +4,7 @@
 <h1 align="center"> golang-cli-template</h1>
 
 <p align="center">
-  <a href="https://github.com/gojp/goreportcard/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License Apache 2.0" style="max-width:100%;"></a>
+  <a href="https://github.com/gojp/goreportcard/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/badge/License-Apache 2.0-blue.svg" alt="License Apache 2.0" style="max-width:100%;"></a>
   <a href="https://pkg.go.dev/github.com/thazelart/golang-cli-template" rel="nofollow"><img src="https://pkg.go.dev/badge/github.com/thazelart/golang-cli-template.svg" alt="Go reference" style="max-width:100%;"></a>
   <a href="https://goreportcard.com/report/github.com/thazelart/golang-cli-template" rel="nofollow"><img src="https://goreportcard.com/badge/github.com/thazelart/golang-cli-template" alt="Go report card" style="max-width:100%;"></a>
 </p>
@@ -38,8 +38,11 @@ $ go-archetype transform --transformations .go-archetype.yaml --source . --desti
 # answer the questions
 
 $ cd /path/to/destination
+
 # init your git repository and you're done.
 ```
+
+As you may have notices the `LICENSE` file is missing. Please add the according Licence file. You can find most of the licenses [here](https://github.com/licenses/license-templates/tree/master/templates).
 
 Enjoy developing your awesome cli.
 
