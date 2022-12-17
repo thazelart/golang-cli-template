@@ -1,6 +1,9 @@
 name: validate
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
 
 jobs:
@@ -59,8 +62,14 @@ jobs:
       #    | |  __/\__ \ |_
       #    |_|\___||___/\__|
       #
-      - name: Run Go tests
-        run: ./scripts/go.test.sh
+      - name: Run coverage
+        run: go test ./... -race -coverprofile=coverage.txt -covermode=atomic
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.txt
+          fail_ci_if_error: true
 
       #   ____             _
       #  |  _ \  ___   ___| | _____ _ __
