@@ -65,6 +65,7 @@ brews:
   - tap:
       owner: thazelart
       name: homebrew-tap
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
     goarm: "7"
     homepage: https://github.com/thazelart/golang-cli-template
     description: A Golang cli template.
