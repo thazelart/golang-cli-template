@@ -14,9 +14,11 @@ local/deps:
 	go mod download
 	go install github.com/spf13/cobra-cli@v1.3.0
 	go install github.com/goreleaser/goreleaser@latest
+	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
 
-## Run the unit tests.
+## Locally run the golang test.
 go/test:
+	golangci-lint run ./...
 	go test ./...
 	
 ## Build locally the go project.

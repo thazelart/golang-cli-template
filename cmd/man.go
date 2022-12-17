@@ -14,19 +14,19 @@ import (
 
 // manCmd represents the man command
 var manCmd = &cobra.Command{
-	Use:   "man",
-	Short: "Generates golang-cli-template's command line manpages",
+	Use:    "man",
+	Short:  "Generates golang-cli-template's command line manpages",
 	Hidden: true,
-	Args: cobra.NoArgs,
+	Args:   cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		manPage, err := mcobra.NewManPage(1, rootCmd)
-    if err != nil {
-        panic(err)
-    }
+		if err != nil {
+			panic(err)
+		}
 
-    manPage = manPage.WithSection("Copyright", "(C) 2022 Thibault HAZELART <thazelart@gmail.com>")
+		manPage = manPage.WithSection("Copyright", "(C) 2022 Thibault HAZELART <thazelart@gmail.com>")
 
-    fmt.Fprint(os.Stdout, manPage.Build(roff.NewDocument()))
+		fmt.Fprint(os.Stdout, manPage.Build(roff.NewDocument()))
 	},
 }
 
