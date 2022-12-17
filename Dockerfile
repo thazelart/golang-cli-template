@@ -20,7 +20,7 @@ RUN echo "nonroot:x:65534:65534:Non root:/:" > /etc_passwd
 # Final stage
 FROM scratch
 
-LABEL maintainer="Thibault HAZELART thazelart@gmail.com"
+LABEL maintainer="Thibault HAZELART <thazelart@gmail.com>"
 
 COPY --from=builder /go/bin/golang-cli-template /bin/golang-cli-template
 COPY --from=builder /etc_passwd /etc/passwd
