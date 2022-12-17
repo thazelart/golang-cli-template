@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+.DS_Store
 
 # Test binary, built with `go test -c`
 *.test
@@ -22,4 +23,7 @@ internal/cmd/version/commit.txt
 internal/cmd/version/version.txt
 internal/cmd/version/build_date.txt
 golang-cli-template
+golang-cli-template*.tar.gz
 dist
+completions/
+manpages

@@ -1,5 +1,5 @@
 /*
-Copyright © 2022 Thibault HAZELART thazelart@gmail.com
+Copyright © 2022 Thibault HAZELART <thazelart@gmail.com>
 */
 
 package cmd

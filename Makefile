@@ -6,18 +6,18 @@ GO_VERSION=1.19
 default: help
 
 ## Test the goreleaser configuration locally.
-test/goreleaser:
+goreleaser/test:
 	goreleaser --snapshot --skip-publish --rm-dist
-
-## Run the unit tests.
-test/go:
-	go test ./...
 
 ## Get this project dependencies.
 local/deps:
 	go mod download
 	go install github.com/spf13/cobra-cli@v1.3.0
 	go install github.com/goreleaser/goreleaser@latest
+
+## Run the unit tests.
+go/test:
+	go test ./...
 	
 ## Build locally the go project.
 go/build:
