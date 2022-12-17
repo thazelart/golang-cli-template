@@ -2,7 +2,7 @@ package version
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 	"runtime"
 	"testing"
@@ -28,7 +28,7 @@ func TestPrint(t *testing.T) {
 	Print()
 	w.Close()
 
-	out, _ := ioutil.ReadAll(r)
+	out, _ := io.ReadAll(r)
 
 	assert.Regexp(t, regexp, string(out))
 }
