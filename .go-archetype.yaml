@@ -21,6 +21,9 @@ inputs:
   - id: maintainer
     text: Who is the maintainer? (e.g. Thibault HAZELART <thazelart@gmail.com>)
     type: text
+  - id: license
+    text: What is a software license? (e.g. Apache 2.0, MIT ...)
+    type: text
 before:
   operations:
     - sh:
@@ -32,6 +35,7 @@ transformations:
     replacement: "{{ wrap 80 .short_description }}"
     files:
       - "cmd/root.go"
+      - ".goreleaser"
   - name: project long description
     type: replace
     pattern: An opinionated template for new Golang cli projects.
@@ -71,6 +75,9 @@ transformations:
     replacement: "{{ .repo_user }}"
     files:
       - "scripts/fury-upload.sh"
+      - "README.md"
+      - ".goreleaser.yaml"
+      - "Makefile"
   - name: project name
     type: replace
     pattern: golang-cli-template
@@ -94,17 +101,29 @@ transformations:
       - "*.go"
       - "**/*.go"
       - "Dockerfile"
+      - ".goreleaser.yaml"
+  - name: license
+    type: replace
+    pattern: Apache 2.0
+    replacement: "{{ .license }}"
+    files:
+      - "*.go"
+      - "**/*.go"
+      - "Dockerfile"
+      - ".goreleaser.yaml"
+      - "README.md"
   - name: do not include template code in the final output
     type: include
     region_marker: __DO_NOT_INCLUDE__
     condition: false
     files: ["**"]
-  - name: remove .go-archtype.yaml
+  - name: remove unwanted files
     type: include
     region_marker: # When there's no marker, the entire file(s) is included
     condition: "yes"
     files:
-      - ".go-archtype.yaml"
+      - ".go-archetype.yaml"
+      - "LICENSE"
 after:
   operations:
     - sh:
