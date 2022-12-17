@@ -2,6 +2,8 @@ package version
 
 import (
 	"fmt"
+	"io"
+	"os"
 	"runtime"
 	"testing"
 
@@ -18,4 +20,15 @@ OS / Arch : %s %s
 
 func TestGenerateOutput(t *testing.T) {
 	assert.Regexp(t, regexp, generateOutput())
+}
+
+func TestPrint(t *testing.T) {
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+	Print()
+	w.Close()
+
+	out, _ := io.ReadAll(r)
+
+	assert.Regexp(t, regexp, string(out))
 }
