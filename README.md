@@ -1,5 +1,5 @@
 <!-- BEGIN __DO_NOT_INCLUDE__ -->
-<p align="center"><img src="https://gist.githubusercontent.com/thazelart/5be06c101f53079b9914d6efd867e690/raw/35bdb7d2ba35dc2958637a59b63aa3d3db44f4f3/golang-cli-template.png" alt="Logo" height="120" /></p>
+<p align="center"><img src="https://gist.githubusercontent.com/thazelart/5be06c101f53079b9914d6efd867e690/raw/1db944ea6c82dde17ad24f2288eaeafe4013dafc/golang-cli-template.v2.png" alt="Logo" height="120" /></p>
 <!-- END __DO_NOT_INCLUDE__ -->
 <h1 align="center"> golang-cli-template</h1>
 
@@ -128,3 +128,11 @@ $ go install
 ```
 
 </details>
+
+<!-- BEGIN __DO_NOT_INCLUDE__ -->
+
+## Logo
+
+This logo is based on the `create-go-app` logo. Please find all information [here](https://github.com/create-go-app/cli/wiki/Logo).
+
+<!-- END __DO_NOT_INCLUDE__ -->
