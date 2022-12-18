@@ -23,6 +23,7 @@ internal/cmd/version/commit.txt
 internal/cmd/version/version.txt
 internal/cmd/version/build_date.txt
 golang-cli-template
+!docs/golang-cli-template
 golang-cli-template*.tar.gz
 dist
 completions/

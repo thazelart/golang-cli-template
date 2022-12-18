@@ -2,6 +2,9 @@
 ignore:
   - .git/
   - .go-archtype.yml
+  - "LICENSE"
+  - "docs/golang-cli-template"
+
 inputs:
   - id: repo_base_url
     text: What is the project repo path base URL? (e.g. github.com)
@@ -24,11 +27,35 @@ inputs:
   - id: license
     text: What is a software license? (e.g. Apache 2.0, MIT ...)
     type: text
+  - id: includeMkdocs
+    text: Would you like to include the documentation with mkdocs?
+    type: yesno
+
 before:
   operations:
     - sh:
         - rm -rf {{.destination}}
+
 transformations:
+  - name: do not include template code in the final output
+    type: include
+    region_marker: __DO_NOT_INCLUDE__
+    condition: false
+    files: ["**"]
+  - name: remove unwanted files
+    type: include
+    region_marker: # When there's no marker, the entire file(s) is included
+    condition: "yes"
+    files:
+      - ".go-archetype.yaml"
+      - "LICENSE"
+      - "docs/golang-cli-template/**"
+  #   ____            _           _
+  #  |  _ \ _ __ ___ (_) ___  ___| |_
+  #  | |_) | '__/ _ \| |/ _ \/ __| __|
+  #  |  __/| | | (_) | |  __/ (__| |_
+  #  |_|   |_|  \___// |\___|\___|\__|
+  #                |__/
   - name: project short description
     type: replace
     pattern: A Golang cli template.
@@ -36,6 +63,7 @@ transformations:
     files:
       - "cmd/root.go"
       - ".goreleaser"
+      - "docs/*"
   - name: project long description
     type: replace
     pattern: An opinionated template for new Golang cli projects.
@@ -43,6 +71,7 @@ transformations:
     files:
       - "cmd/root.go"
       - "README.md"
+      - "docs/*"
   - name: project long path
     type: replace
     pattern: github.com/thazelart/golang-cli-template
@@ -62,6 +91,7 @@ transformations:
       - ".github/CONTRIBUTING.md"
       - ".github/SECURITY.md"
       - ".github/pull_request_template.md"
+      - "docs/*"
   - name: project short path
     type: replace
     pattern: thazelart/golang-cli-template
@@ -74,6 +104,7 @@ transformations:
       - "README.md"
       - ".goreleaser.yaml"
       - ".github/workflows/*.yaml"
+      - "docs/*"
   - name: user
     type: replace
     pattern: thazelart
@@ -84,6 +115,7 @@ transformations:
       - ".goreleaser.yaml"
       - "Makefile"
       - ".github/ISSUE_TEMPLATE/*.yaml"
+      - "docs/*"
   - name: project name
     type: replace
     pattern: golang-cli-template
@@ -102,6 +134,7 @@ transformations:
       - ".github/CONTRIBUTING.md"
       - "scripts/completions.sh"
       - "scripts/manpages.sh"
+      - "docs/*"
   - name: project maintainer
     type: replace
     pattern: Thibault HAZELART <thazelart@gmail.com>
@@ -112,6 +145,7 @@ transformations:
       - "Dockerfile"
       - ".goreleaser.yaml"
       - ".github/SECURITY.md"
+      - "docs/*"
   - name: license
     type: replace
     pattern: Apache 2.0
@@ -122,18 +156,27 @@ transformations:
       - "Dockerfile"
       - ".goreleaser.yaml"
       - "README.md"
-  - name: do not include template code in the final output
-    type: include
-    region_marker: __DO_NOT_INCLUDE__
-    condition: false
-    files: ["**"]
-  - name: remove unwanted files
+  #   __  __ _       _
+  #  |  \/  | | ____| | ___   ___ ___
+  #  | |\/| | |/ / _` |/ _ \ / __/ __|
+  #  | |  | |   < (_| | (_) | (__\__ \
+  #  |_|  |_|_|\_\__,_|\___/ \___|___/
+  #
+  - name: include the mkdocs documentation
     type: include
     region_marker: # When there's no marker, the entire file(s) is included
-    condition: "yes"
+    condition: .IncludeMkdocs
     files:
-      - ".go-archetype.yaml"
-      - "LICENSE"
+      - docs/**
+      - .github/workflows/doc.yaml
+      - mkdocs.yaml
+  - name: include the mkdocs documentation
+    type: include
+    region_marker: __INCLUDE_MKDOCS__
+    condition: .IncludeMkdocs
+    files:
+      - "Makefile"
+
 after:
   operations:
     - sh:

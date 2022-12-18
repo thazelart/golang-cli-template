@@ -1,0 +1,58 @@
+site_name: golang-cli-template
+site_url: https://thazelart.github.io/golang-cli-template/
+
+# Repository
+repo_name: thazelart/golang-cli-template
+repo_url: https://github.com/thazelart/golang-cli-template
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+theme:
+  name: material
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+  favicon: assets/images/favicon.ico
+  icon:
+    logo: logo
+  logo: assets/images/logo.png
+  palette:
+    - scheme: default
+      primary: 333333
+      accent: 333333
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: "#333333"
+      accent: "#333333"
+      toggle:
+        icon: material/brightness-3
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Golang CLI template:
+      - Features: golang-cli-template/features.md
+      - Getting started: golang-cli-template/getting-started.md
+      - Customization:
+          - Release: golang-cli-template/customization/release.md
+          - Documentation: golang-cli-template/customization/doc.md
+
+  - User guide:
+      - Installation: user-guide/getting-started.md
+      - Commands:
+          - Version: user-guide/commands/version.md
+
+  - Developer guide:
+      - Code of conduct: dev-guide/code_of_conduct.md
+      - Contributing: dev-guide/contributing.md

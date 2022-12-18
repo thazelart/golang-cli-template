@@ -1,0 +1,22 @@
+name: deploy documentation
+
+on:
+  push:
+    branches:
+      - main
+      - test-deploy-documentation/*
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - run: pip install -r docs/requirements.txt
+
+      - run: mkdocs gh-deploy --force
