@@ -133,6 +133,10 @@ $ go install
 
 </details>
 
+## Contribute to this repository
+
+This project adheres to the Contributor Covenant [code of conduct](https://github.com/thazelart/golang-cli-template/blob/main/.github/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. We appreciate your contribution. Please refer to our [contributing](https://github.com/thazelart/golang-cli-template/blob/main/.github/CONTRIBUTING.md) guidelines for further information.
+
 <!-- BEGIN __DO_NOT_INCLUDE__ -->
 
 ## Logo

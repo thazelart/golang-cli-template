@@ -57,6 +57,11 @@ transformations:
       - "README.md"
       - ".goreleaser.yaml"
       - ".github/workflows/*.yaml"
+      - ".github/ISSUE_TEMPLATE/*.yaml"
+      - ".github/ISSUE_TEMPLATE/config.yml"
+      - ".github/CONTRIBUTING.md"
+      - ".github/SECURITY.md"
+      - ".github/pull_request_template.md"
   - name: project short path
     type: replace
     pattern: thazelart/golang-cli-template
@@ -78,6 +83,7 @@ transformations:
       - "README.md"
       - ".goreleaser.yaml"
       - "Makefile"
+      - ".github/ISSUE_TEMPLATE/*.yaml"
   - name: project name
     type: replace
     pattern: golang-cli-template
@@ -91,6 +97,9 @@ transformations:
       - "README.md"
       - ".goreleaser.yaml"
       - ".github/workflows/*.yaml"
+      - ".github/ISSUE_TEMPLATE/*.yaml"
+      - ".github/ISSUE_TEMPLATE/config.yml"
+      - ".github/CONTRIBUTING.md"
       - "scripts/completions.sh"
       - "scripts/manpages.sh"
   - name: project maintainer
@@ -102,6 +111,7 @@ transformations:
       - "**/*.go"
       - "Dockerfile"
       - ".goreleaser.yaml"
+      - ".github/SECURITY.md"
   - name: license
     type: replace
     pattern: Apache 2.0
