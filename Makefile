@@ -11,7 +11,7 @@ goreleaser/test:
 
 ## Get this project dependencies.
 local/deps:
-	go mod download
+	go mod tidy
 	go install github.com/spf13/cobra-cli@v1.3.0
 	go install github.com/goreleaser/goreleaser@latest
 	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
@@ -32,6 +32,10 @@ go/build:
 docker/build:
 	@echo "building image ${IMAGE_NAME}"
 	docker build --build-arg GO_VERSION=${GO_VERSION} -t $(IMAGE_NAME):latest .
+
+## Make sure everything is ok before a commit
+pre-commit: go/test
+	go fmt ./...
 
 ## Print his help screen
 help:
