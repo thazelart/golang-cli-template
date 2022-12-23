@@ -59,19 +59,44 @@ It includes:
 We are using [rantav/go-archetype](https://github.com/rantav/go-archetype) to enable the creation of new projects from that template.
 
 ```bash
+# Get go-archetype
 $ go install github.com/rantav/go-archetype@latest
 
-$ go-archetype transform --transformations .go-archetype.yaml --source . --destination /path/to/destination
-# answer the questions
+# Generate your base
+$ DEST_FOLDER=/path/to/destination # Non existing folder
+$ REPO_BASE_URL=github.com
+$ REPO_USER=thazelart
+$ REPO_NAME=my-awesome-cli
 
-$ cd /path/to/destination
+$ go-archetype transform \
+  --transformations .go-archetype.yaml \
+  --source . \
+  --destination ${DEST_FOLDER} \
+  -- \
+  --repo_base_url ${REPO_BASE_URL} \
+  --repo_user ${REPO_USER} \
+  --repo_name ${REPO_NAME}
+  ## answer the questions
 
-# init your git repository and you're done.
+# Init git and push
+$ cd ${DEST_FOLDER}
+$ git init
+$ git add .
+$ git commit -m "first commit"
+$ git branch -M main
+$ git remote add origin git@${REPO_BASE_URL}:${REPO_USER}/${REPO_NAME}.git
+$ git push -u origin main
 ```
+
+### License
 
 As you may have notices the `LICENSE` file is missing. Please add the according Licence file. You can find most of the licenses [here](https://github.com/licenses/license-templates/tree/master/templates).
 
 Enjoy developing your awesome cli.
+
+### Greetings on Pull Requests and Issues
+
+This repository includes greetings on Pull Requests and Issues. By default the comment will be added by the `github-actions bot`. If you want to customize it, add a `TAP_GITHUB_TOKEN` secret linked to the user or organization you want the comment from.
 
 <!-- END __DO_NOT_INCLUDE__ -->
 
@@ -162,6 +187,6 @@ This project adheres to the Contributor Covenant [code of conduct](https://githu
 
 ## Logo
 
-This logo is based on the `create-go-app` logo. Please find all information [here](https://github.com/create-go-app/cli/wiki/Logo).
+The logo is based on the `create-go-app`. Please find all information [here](https://github.com/create-go-app/cli/wiki/Logo).
 
 <!-- END __DO_NOT_INCLUDE__ -->
