@@ -40,67 +40,33 @@ An opinionated template for new Golang cli projects.
 
 <!-- BEGIN __DO_NOT_INCLUDE__ -->
 
-It includes:
+## Template
 
-- The base of a cli using `spf13/cobra` (including the `version` command)
-- Everything needed to test using `stretchr/testify`
-- The optimized and secured Dockerfile
-- Templating engine using `rantav/go-archetype`
-- Basic GitHub actions
-- Release management using `goreleaser/goreleaser`:
-  - Generate the completions scripts
-  - Generate the man pages
-  - Push images for `homebrew`, `apt`, `yum` and `apk`
-  - Generate the `.rpm`, `.deb` and `.apk` package files
-- code coverage using[codecov](https://codecov.io)
+This golang CLI template includes the base of a [cobra](https://github.com/spf13/cobra) cli tested with [testify](https://github.com/stretchr/testify) and [codecov](https://codecov.io). The release process with [goreleaser](https://goreleaser.com/) and contains a basic secured Docker image.
 
-## Init your own project using that template
+The whole thing is documented with [MkDocs](https://www.mkdocs.org/) and templated with [go-archetype](https://github.com/rantav/go-archetype).
 
-We are using [rantav/go-archetype](https://github.com/rantav/go-archetype) to enable the creation of new projects from that template.
+For more information please have a look at the [features](https://thazelart.github.io/golang-cli-template/golang-cli-template/features/) section of the documentation.
 
-```bash
-# Get go-archetype
-$ go install github.com/rantav/go-archetype@latest
+### Getting started
 
-# Generate your base
-$ DEST_FOLDER=/path/to/destination # Non existing folder
-$ REPO_BASE_URL=github.com
-$ REPO_USER=thazelart
-$ REPO_NAME=my-awesome-cli
-
-$ go-archetype transform \
-  --transformations .go-archetype.yaml \
-  --source . \
-  --destination ${DEST_FOLDER} \
-  -- \
-  --repo_base_url ${REPO_BASE_URL} \
-  --repo_user ${REPO_USER} \
-  --repo_name ${REPO_NAME}
-  ## answer the questions
-
-# Init git and push
-$ cd ${DEST_FOLDER}
-$ git init
-$ git add .
-$ git commit -m "first commit"
-$ git branch -M main
-$ git remote add origin git@${REPO_BASE_URL}:${REPO_USER}/${REPO_NAME}.git
-$ git push -u origin main
-```
-
-### License
-
-As you may have notices the `LICENSE` file is missing. Please add the according Licence file. You can find most of the licenses [here](https://github.com/licenses/license-templates/tree/master/templates).
-
-Enjoy developing your awesome cli.
+Please find all the required information on the [getting stared](https://thazelart.github.io/golang-cli-template/golang-cli-template/getting-started/) section of the documentation.
 
 ### Greetings on Pull Requests and Issues
 
-This repository includes greetings on Pull Requests and Issues. By default the comment will be added by the `github-actions bot`. If you want to customize it, add a `TAP_GITHUB_TOKEN` secret linked to the user or organization you want the comment from.
+This repository includes greetings on Pull Requests and Issues. By default the comment will be added by the `github-actions bot`. If you want to customize it, add a `TAP_GITHUB_TOKEN` secret containing a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) of the user or organization you want the comment from.
+
+### Logo
+
+The logo is based on the `create-go-app`. Please find all information [here](https://github.com/create-go-app/cli/wiki/Logo).
 
 <!-- END __DO_NOT_INCLUDE__ -->
 
 ## Install
+
+You can install the pre-compiled binary (in several ways), use Docker or compile from source (when on OSS).
+
+Below you can find the steps for each of them.
 
 <details>
   <summary><h3>homebrew tap</h3></summary>
@@ -182,11 +148,3 @@ $ go install
 ## Contribute to this repository
 
 This project adheres to the Contributor Covenant [code of conduct](https://github.com/thazelart/golang-cli-template/blob/main/.github/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. We appreciate your contribution. Please refer to our [contributing](https://github.com/thazelart/golang-cli-template/blob/main/.github/CONTRIBUTING.md) guidelines for further information.
-
-<!-- BEGIN __DO_NOT_INCLUDE__ -->
-
-## Logo
-
-The logo is based on the `create-go-app`. Please find all information [here](https://github.com/create-go-app/cli/wiki/Logo).
-
-<!-- END __DO_NOT_INCLUDE__ -->
