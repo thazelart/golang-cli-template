@@ -50,7 +50,7 @@ For more information please have a look at the [features](https://thazelart.gith
 
 ### Getting started
 
-Please find all the required information on the [getting stared](https://thazelart.github.io/golang-cli-template/golang-cli-template/getting-started/) section of the documentation.
+Please find all the required information on the [getting started](https://thazelart.github.io/golang-cli-template/golang-cli-template/getting-started/) section of the documentation.
 
 ### Greetings on Pull Requests and Issues
 
