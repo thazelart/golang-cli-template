@@ -66,10 +66,11 @@ jobs:
         run: go test ./... -race -coverprofile=coverage.txt -covermode=atomic
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           file: ./coverage.txt
           fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }} 
 
       #   ____             _
       #  |  _ \  ___   ___| | _____ _ __
