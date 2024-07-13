@@ -1,6 +1,6 @@
 module github.com/thazelart/golang-cli-template
 
-go 1.19
+go 1.22
 
 require (
 	github.com/muesli/mango-cobra v1.2.0

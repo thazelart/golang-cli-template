@@ -21,7 +21,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: "^1.19.4"
+          go-version: "^1.22.5"
 
       - name: Init project
         run: |
@@ -53,7 +53,7 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
-          version: v1.50.1
+          version: v1.59.1
           skip-pkg-cache: true
 
       #   _____         _
