@@ -23,12 +23,13 @@ func TestGenerateOutput(t *testing.T) {
 }
 
 func TestPrint(t *testing.T) {
+	storeStdout := os.Stdout
 	r, w, _ := os.Pipe()
 	os.Stdout = w
 	Print()
 	w.Close()
-
 	out, _ := io.ReadAll(r)
+	os.Stdout = storeStdout
 
 	assert.Regexp(t, regexp, string(out))
 }

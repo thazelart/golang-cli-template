@@ -21,7 +21,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: "^1.19.4"
+          go-version: "^1.22.5"
 
       - name: Init project
         run: |
@@ -53,7 +53,7 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
-          version: v1.50.1
+          version: v1.59.1
           skip-pkg-cache: true
 
       #   _____         _
@@ -66,10 +66,11 @@ jobs:
         run: go test ./... -race -coverprofile=coverage.txt -covermode=atomic
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           file: ./coverage.txt
           fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }} 
 
       #   ____             _
       #  |  _ \  ___   ___| | _____ _ __

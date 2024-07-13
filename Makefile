@@ -1,7 +1,7 @@
 BIN_NAME=golang-cli-template
 IMAGE_NAME=thazelart/${BIN_NAME}
 BIN_PATH=${GOPATH}/bin
-GO_VERSION=1.19
+GO_VERSION=1.22
 
 default: help
 
