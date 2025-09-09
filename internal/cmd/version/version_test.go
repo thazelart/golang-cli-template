@@ -27,7 +27,9 @@ func TestPrint(t *testing.T) {
 	r, w, _ := os.Pipe()
 	os.Stdout = w
 	Print()
-	w.Close()
+	if err := w.Close(); err != nil {
+		t.Fatalf("failed to close writer: %v", err)
+	}
 	out, _ := io.ReadAll(r)
 	os.Stdout = storeStdout
 

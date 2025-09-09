@@ -1,7 +1,7 @@
 BIN_NAME=golang-cli-template
 IMAGE_NAME=thazelart/${BIN_NAME}
 BIN_PATH=${GOPATH}/bin
-GO_VERSION=1.22
+GO_VERSION=1.25
 
 default: help
 
@@ -15,6 +15,7 @@ local/deps:
 
 ## Locally run the golang test.
 go/test:
+	go generate ./...
 	golangci-lint run ./...
 	go test ./...
 	
