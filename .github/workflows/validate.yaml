@@ -71,6 +71,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }} 
           file: ./coverage.txt
           fail_ci_if_error: true
+          branch: ${{ github.ref != 'refs/heads/dependabot'* }}
 
       #   ____             _
       #  |  _ \  ___   ___| | _____ _ __
