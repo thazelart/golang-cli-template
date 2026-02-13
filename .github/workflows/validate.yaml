@@ -81,7 +81,7 @@ jobs:
       - name: Build the Docker image
         run: make VERSION=latest docker/build
       - name: Run the Anchore scan action
-        uses: anchore/scan-action@v6
+        uses: anchore/scan-action@v7
         with:
           image: "thazelart/golang-cli-template:latest"
           output-format: json
